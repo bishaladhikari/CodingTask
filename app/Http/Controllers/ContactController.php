@@ -49,7 +49,7 @@ class ContactController extends Controller
         $request->validate([
             'firstname' => 'required|regex:/^[a-zA-Z]+$/u|max:50',
             'lastname' => 'required|regex:/^[a-zA-Z]+$/u|max:50',
-            'email' => 'required|email|unique:email',
+            'email' => 'required|email',
         ]);
         $data = $request->except('_token');;
 
