@@ -47,9 +47,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'firstname' => 'required|',
-            'lastname' => 'required',
-            'email' => 'required',
+            'firstname' => 'required|regex:/^[a-zA-Z]+$/u|max:50',
+            'lastname' => 'required|regex:/^[a-zA-Z]+$/u|max:50',
+            'email' => 'required|email|unique:email',
         ]);
         $data = $request->except('_token');;
 
